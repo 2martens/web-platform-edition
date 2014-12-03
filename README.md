@@ -3,75 +3,56 @@
 
 --> All references and the whole file will be changed <--
 
-Welcome to the 2martens Web Platform Edition. This Symfony2 distribution
-comes with the 2martens Web Platform in addition to all the great things
-you already with the Symfony Standard Edition.
+Welcome to the 2martens Web Platform Edition. This Symfony distribution 
+combines the 2martens Web Platform with the Symfony full stack framework.
 
-This distribution can be used to develop applications and plugins for the
-Web Platform that make use of the package system. Furthermore it is a
-production ready community platform. The distribution alone already provides
-this frontend functionality:
+It is a standalone community platform that can be extended with additional
+features and whole applications through it's ACP. The following bundles 
+are already included in this distribution:
 
-- user registration and login
-- conversations between users
-- members list
-- Dashboard
-- minimal frontend message system (allows you to write short contents
-  that appear in the Dashboard)
+* Core bundle (the very base of the web platform)
+* Frontend Essentials bundle (provides frontend access to Core functionality: e.g. login/registration)
+* Content bundle (feature bundle that provides a WYSIWYG editor)
+* Language bundle (feature bundle for multilingual user content)
+* Media bundle (feature bundle to include media from different providers: e.g. YouTube)
+* Upload bundle (feature bundle for upload functionality)
+* Mail bundle (feature bundle for mail sending, supports Double-Opt-In)
+* Community bundle (feature bundle for community-related features: e.g. UCP, notifications)
+* Poll bundle (feature bundle for sophisticated polls)
+* Conversation bundle (feature bundle for conversations)
+* Sanction bundle (feature bundle for sanctions/warnings with consequences)
 
-This basic setup allows you to create a community long before your actual
-project is programmed (if you decide to go crazy and develop a fully customized
-project instead of using applications).
+This set of bundles does not include an application (e.g forum) yet but is 
+the bare bone of every modern community-oriented website. From within the 
+ACP it is very easy to install new bundles.
 
-On the backend side you get a full ACP that will be used by every plugin
-and application for this web platform.
+The Core bundle itself already delivers the most essential components of 
+the platform, including an ACP in which you can find all administrative 
+tasks of every installed bundle. Furthermore you can deactivate every 
+bundle and often even sub features. **The same mechanism is also used to 
+deactivate buggy features via patch until they have been fixed. This 
+prevents the situation that a single error breaks the entire system.** 
+(evaluate)
 
 This document contains information on how to download, install, and start
 using the Web Platform. For a more detailed explanation, see the [Installation][1]
 chapter of the Web Platform Documentation.
 
 1) Installing the Web Platform Edition
-----------------------------------
+--------------------------------------
 
-When it comes to installing the Web Platform Edition, you have the
-following options.
+There are different options for installing the web platform. Which one you choose, depends mainly on the usage of that particular installation.
 
-### GUI process
-The best and easiest way to install the Web Application is downloading
-the bundled archive (TODO: link) which provides a graphical installation process.
+### Git + Composer
+* clone a fork of this repository
+* install dependencies with Composer (look at next option for details)
 
-This graphical process provides these features
-- multilingual installation process (German, English as of now)
-- composer.phar already bundled (will be updated with selfupdate)
-- unpacking the archive (the download archive contains both installation
-  process files and the source archive; the latter is unpacked here)
-- using Composer to install the dependencies (no dev requirements)
-- configuration of global database (parameters.yml)
-- creation of necessary tables in that database
-- filling the database with needed contents (user groups, package information, etc.)
-- creation of first user (member of admin group which has access to all ROLE_* controlled
-  areas)
-- switching to ACP
-- cleanup (removing installation files)
-- post-install configuration (each bundle can specify steps, the user
-  is guided through all of them)
-  - this configuration process is optional and can be skipped
-  - for beginners it is **highly recommended** to use this guided process
-
-This installation process allows the installation of simple webspace while
-avoiding a massive FTP upload duration (uploading the unpacked version to webspace).
-
-### Composer + Symfony2 Standard Edition
-
-There is an alternative installation procedure as well. You can download
-the [Symfony2 Standard Edition][2] and then install this library via Composer.
-
-IMPORTANT: You are not done then. You have to manually call the installation
-process (TODO: how) to install the database contents.
+This option is very useful, if you want to develop your own application 
+based on the platform.
 
 ### Composer all the way
 
-The final possibility is to install this Web Platform only with [Composer][3].
+The second possibility is to install this Web Platform only with [Composer][3].
 
 If you don't have Composer yet, download it following the instructions on
 http://getcomposer.org/ or just run the following command:
@@ -85,8 +66,8 @@ Then, use the `create-project` command to generate a new Web Platform applicatio
 Composer will install the Web Platform and all its dependencies under the
 `path/to/install` directory.
 
-IMPORTANT: You are not done then. You have to manually call the installation
-process (TODO: how) to install the database contents.
+This option is very useful for a manual deployment, if you only want to
+use the platform without developing for it.
 
 2) Checking your System Configuration
 -------------------------------------
@@ -106,6 +87,8 @@ Access the `config.php` script from a browser:
     http://localhost/path/to/web/platform/app/web/config.php
 
 If you get any warnings or recommendations, fix them before moving on.
+
+TODO: evaluate additional step
 
 3) Getting started with the Web Platform
 ----------------------------------------
