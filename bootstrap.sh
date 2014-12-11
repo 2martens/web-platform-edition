@@ -2,7 +2,7 @@
 # used for vagrant setup
 
 apt-get update
-apt-get install -y apache2
+apt-get install -y apache2 php mongodb
 if ! [ -L /var/www ]; then
   rm -rf /var/www
   ln -fs /vagrant /var/www
