@@ -8,8 +8,9 @@
     },
     "require": {
         "php": ">=5.5",
-        "symfony/symfony": "~2.7",
+        "symfony/symfony": "~2.6",
         "twig/twig": "~1.12",
+        "doctrine/doctrine-bundle": "~1.2",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
@@ -17,8 +18,7 @@
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "2martens/web-platform": "dev-master",
-        "2martens/composer-plugin": "dev-master"
+        "2martens/web-platform": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
