@@ -31,7 +31,9 @@ security:
             logout:
                 path:   _demo_logout
                 target: _demo
-            #anonymous: ~
+
+        default:
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
