@@ -21,10 +21,10 @@ security:
             pattern:  ^/acp/
             provider: fos_userbundle
             form_login:
-                csrf_provider:       security.csrf.token_manager
-                check_path:          acp.login_check
-                login_path:          acp.login
-                default_target_path: acp.home
+                csrf_token_generator: security.csrf.token_manager
+                check_path:           acp.login_check
+                login_path:           acp.login
+                default_target_path:  acp.home
             logout:
                 path:   acp.logout
                 target: acp.login
