@@ -5,12 +5,16 @@
 !/var/cache
 /var/cache/*
 !var/cache/.gitkeep
+!/var/group
+/var/group/*
+!/var/group/default.yml
 !/var/logs
 /var/logs/*
 !var/logs/.gitkeep
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
+!/var/options.yml.dist
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
