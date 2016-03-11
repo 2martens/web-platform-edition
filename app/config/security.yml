@@ -1,41 +1,36 @@
-# to be changed entirely
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        FOS\UserBundle\Model\UserInterface:
+            algorithm: bcrypt
+            cost: 12
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/demo/secured/
+        acp:
+            pattern:  ^/acp/
+            provider: fos_userbundle
             form_login:
-                check_path: _security_check
-                login_path: _demo_login
+                csrf_provider:       security.csrf.token_manager
+                check_path:          acp.login_check
+                login_path:          acp.login
+                default_target_path: acp.home
             logout:
-                path:   _demo_logout
-                target: _demo
-
+                path:   acp.logout
+                target: acp.login
+            anonymous: ~
         default:
             anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
-
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/acp/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/acp/, roles: ROLE_ACP_TWOMARTENS.CORE_ACCESS }
