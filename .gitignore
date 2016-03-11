@@ -5,6 +5,9 @@
 !/var/cache
 /var/cache/*
 !var/cache/.gitkeep
+!/var/group
+/var/group/*
+!/var/group/default.yml
 !/var/logs
 /var/logs/*
 !var/logs/.gitkeep
