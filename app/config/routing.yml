@@ -1,0 +1,2 @@
+_core_bundle:
+  resource: "@TwoMartensCoreBundle/Resources/config/routing.yml"
